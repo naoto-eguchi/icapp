@@ -1,0 +1,21 @@
+<h3>以下の内容で、送信する。</h3>
+
+<%= form_with(model: @ic, url: ics_path, local: true) do |form| %>
+  <%= form.hidden_field :title %>
+  <%= form.hidden_field :content %>
+
+  <p>タイトル:<%= @ic.title %></p>
+  <p>本文:<%= @ic.content %></p>
+  <br/>
+  <br/>
+  <%= image_tag(@ic.image.url) %>
+  <%= hidden_field_tag :"cache[image]",@ic.image.cache_name %>
+  <br/>
+  <%= form.submit  "送信する" %>
+<% end %>
+
+<%= form_with(model: @ic, url: new_ic_path, local: true, method: 'get') do |form| %>
+  <%= form.hidden_field :title %>
+  <%= form.hidden_field :content %>
+  <%= form.submit "もどる", name: 'back' %>
+<% end %>
