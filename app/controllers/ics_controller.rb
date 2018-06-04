@@ -22,7 +22,7 @@ class IcsController < ApplicationController
   end
 
    def confirm
-     @ic = Ic.new(ic_params)
+     @ic = current_user.ics.new(ic_params)
      render :new if @ic.invalid?
    end
 
