@@ -34,7 +34,8 @@ class IcsController < ApplicationController
   
   def create
     @ic = Ic.new(ic_params)
-    @ic.user_id = current_user.id 
+    @ic.user_id = current_user.id
+    @ic.image.retrieve_from_cache!params[:cache][:image]
     respond_to do |format|
       if @ic.save
         IcMailer.ic_mail(@ic).deliver
