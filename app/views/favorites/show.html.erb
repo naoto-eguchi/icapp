@@ -1,0 +1,19 @@
+<h2>お気に入りの投稿一覧</h2>
+
+<div class="favorite_ics">
+<table>
+  <tr>
+    <th>image</th>
+    <th>content</th>
+  </tr>
+
+<% @favorite_ics.each do |favorite_ics| %>
+  <tr>
+    <td><%= image_tag favorite_ics.image %></td>
+    <td><%= favorite_ics.content %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<br>
+<%= link_to '投稿一覧画面にもどる', ics_path %>
