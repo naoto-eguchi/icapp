@@ -1,4 +1,19 @@
 <h1>写真を投稿しました！</h1>
 
 <h4>内容の確認</h4>
-<p>content: <%= @ic.content %></p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @ic.image %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @ic.content %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @ic.user.name %>
+</p>
+
